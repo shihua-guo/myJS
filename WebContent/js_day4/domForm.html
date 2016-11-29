@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dom Form测试</title>
+<style type="text/css">
+	form{
+		margin: 50px;
+	}
+</style>
+</head>
+<body>
+	<form id="form1" action="domTable.html" name="myform" onsubmit="return check(this)">
+		<fieldset>
+			<legend>Form1</legend>
+			Username:<input type="text" name="userName" value="alan"/>
+			Password:<input type="password" name="password" value="123"/>
+			<input type="submit" value="Submit" onclick="submitForm();"/>
+		</fieldset>
+	</form>
+	<form id="form2" action="domTable.html" name="myform2" onsubmit="return check(this)">
+		<fieldset>
+			<legend>Form1</legend>
+			Username:<input type="text" name="userName" value="alan"/>
+			Password:<input type="password" name="password" value="123"/>
+			<input type="submit" value="Submit" />
+		</fieldset>
+	</form>
+	<!-- js -->
+	<script type="text/javascript">
+		//获取当前页面所有form对象
+		var forms = document.forms;
+		//遍历所有form对象
+		for(var i=0;i<forms.length;i++){
+			console.log(forms);
+			//获取form的所有元素
+			var es = forms[i].elements;
+			for(var j=0;j<es.length;j++){
+				console.log(es[j]);
+			}
+			//输出userName和password的值
+			console.log(es['userName'].value);
+			console.log(es['password'].value);
+		}
+		
+		//提交表格的函数
+		function submitForm(){
+			//获取当前页面的第一个form表单对象
+			/* console.log("-----------------------forms[0].submit()");
+			document.forms[0].submit(); */
+			//获取名字为myform的form对象1
+			/* console.log("-----------------------forms['myform2']");
+			document.forms['myform2'].submit(); */
+			//获取名字为myform的form对象2
+			/* console.log("-----------------------myform2");
+			document.myform2.submit(); */
+			//获取名字为myform的form对象3
+			/* console.log("-----------------------document['myform2']");
+			document['myform2'].submit(); */
+		}
+		/*
+		* 验证表单是否合理
+		* 如果合理---返回true，正常提交
+		* 如果不合理---返回false，无法提交
+		*/
+		function check(form){
+			var c1 = checkName(form.userName.value);
+			var c1 = checkName(form.password.value);
+			return c1 && c2;
+		}
+		
+		//验证userName是否符合
+		function checkName(userName){
+			/* var form = document.myform2;
+			var userName = form.userName.value;
+			if(userName.length>=5){
+				return true;
+			}else{
+				return false;
+			} */
+			return userName.length>=5;
+		}
+		//验证密码是否符合
+		function checkPasswd(passwd){
+			var reg = /[a-z]{4,6}/;
+			return reg.test(passwd);
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex1</title>
+</head>
+<body>
+		<input type="text" id="content" value="tom"/>
+		<input type="text" id="color" value="red"/>
+		<p>tom</p>
+		<input type="button" value="提交" onclick="changeFont()"/>
+	<!-- JS -->
+	<script type="text/javascript">
+		function changeFont(){
+			//获取content的内容
+			var content = document.getElementById("content").value;
+			var color = document.getElementById("color").value;
+			console.log(content.value);
+			//创建文本节点
+			var txt = document.getElementsByTagName("p")[0];			
+			txt.innerHTML = content;
+			txt.style['color']=color;
+		}
+	</script>
+</body>
+</html>

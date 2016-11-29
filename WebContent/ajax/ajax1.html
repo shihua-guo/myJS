@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	function checkUser(username){ 
+		var req = new XMLHttpRequest();
+		req.onreadystatechange=function()
+		{
+		  if (req.readyState==4 && req.status==200)
+		    {
+			  alert("test...");
+			  console.log(req.responseText);
+		     document.getElementById("msg").innerHTML=req.responseText;
+		    }
+		}
+		req.open("get", "test.do?username="+encodeURI(username.value), true);
+		req.send();
+	}
+</script>
+</head>
+<body>
+	username:<input type="text" name="username" onchange="checkUser(this);">
+	<span id="msg"></span>
+	<br/>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>循环测试</title>
+<script type="text/javascript">
+	document.write("-----------for<br>");
+	var sum=0;
+	for(var i=1;i<=5;i++){
+		sum+=i;
+	}
+	document.write("1~5------"+sum+"<br>");
+	document.write("i------"+i+"<br>");//i没有失效。
+	sum=0;
+	i=0;
+	document.write("<br>-----------while<br>");
+	while(i<=5){
+		sum+=i++;
+	}
+	document.write("1~5------"+sum+"<br>");
+	document.write("i------"+i+"<br>");//i没有失效。
+	sum=0;
+	i=0;
+	document.write("<br>-----------do while<br>");
+	do{
+		sum+=i++;
+	}while(i<=5);
+	document.write("1~5------"+sum+"<br>");
+	document.write("i------"+i+"<br>");//i没有失效。
+	document.write("<br>-----------增强for<br>");
+	var o = new Object();
+	o.name = 'alan';
+	o.age=100;
+	for(var v in o){
+		document.write("v: "+v+"----->"+o[v]+"<br>");
+	}
+	document.write("<br>-----------数组增强for<br>");
+	var arr = ['alan','jade',123,true]
+	for(var v in arr){
+		document.write("v: "+v+"----->"+arr[v]+"<br>");
+	}
+	
+</script>
+</head>
+<body style="font-size: 40px;">
+
+</body>
+</html>

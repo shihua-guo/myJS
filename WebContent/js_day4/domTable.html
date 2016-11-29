@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dom Table测试</title>
+<style type="text/css">
+	body{
+		font-size: 30px;
+	}
+	table,tr,th,td {
+		border: 1px solid black;
+		border-spacing: 0px;
+		text-align: center;
+		height: 40px;
+	}
+	table {
+		margin: 10 auto;
+		width: 80%;
+	}
+</style>
+</head>
+<body>
+	<table id="tab">
+		<!-- 表头 -->
+		<thead>
+			<tr>
+				<th onclick="sortByNo();">No</th>
+				<th>Name</th>
+				<th>Age</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>5</td>
+				<td>alan</td>
+				<td>23</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>jade</td>
+				<td>22</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>bob</td>
+				<td>24</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<!-- js -->
+	<script type="text/javascript">
+		var table = document.getElementById("tab");
+		var cap = table.createCaption();//创建表格标题
+		cap.innerHTML = "学生信息表";//设置标题信息
+		var tbody = table.tBodies[0];//获取tbody对象
+		var tr1  =tbody.insertRow();//添加行
+		for(var i=0;i<3;i++){//添加单元格
+			var td1 = tr1.insertCell();
+			td1.innerHTML = "td"+i;
+		}		
+		//输出tbody
+		console.log(tbody);
+		//获取tbody的行
+		var trs = tbody.rows;
+		//创建存放行的数组
+		var trarr = new Array(trs.length);
+		//把行存放入数组中
+		for(var j=0;j<trs.length;j++){
+			trarr[j] = trs[j];
+		}
+		//数组按照no排序
+		function sortByNo(){
+			trarr.sort(function (s1,s2){//按照重写的规则重新排序
+				return s1.cells[0].innerHTML-s2.cells[0].innerHTML;
+			});
+			for(var k=0;k<trarr.length;k++){//排序好之后开始拼接
+				//console.log(trarr[k].cells[0].innerHTML);
+				tbody.appendChild(trarr[k]);
+			}
+		}
+	</script>
+</body>
+</html>

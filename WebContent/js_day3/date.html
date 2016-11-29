@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Date测试</title>
+<script type="text/javascript">
+	var d1 = new Date();
+	document.write("new Date()当前日期----" + d1 + "<br>");
+	var d2 = new Date("2004-12-28 8:24");
+	var d3 = new Date("2004/12/28 8:24");
+	var d4 = new Date("04/12/28 8:24");
+	document.write("2004-12-28 8:24日期----" + d2 + "<br>");
+	document.write("2004/12/28 8:24日期----" + d3 + "<br>");
+	document.write("04/12/28 8:24日期----" + d4 + "<br>");
+	
+	var d5 = new Date(4324235453332);
+	document.write("new Date(4324235453)日期----" + d5 + "<br>");
+	var d6 = new Date(2004,0,28,8,24);//应该是从0开始，0代表1月
+	document.write("new Date(2004,0,28,8,24)日期----" + d6 + "<br>");
+	
+	document.write("d1.getYear()----" + d1.getYear() + "<br>");
+	document.write("d1.getFullYear()----" + d1.getFullYear() + "<br>");
+	document.write("d1.getDate()----" + d1.getDate() + "<br>");
+	document.write("d1.getDay()----" + d1.getDay() + "<br>");
+	document.write("d1.getMonth()----" + d1.getMonth() + "<br>");
+	document.write("d1.getHours()----" + d1.getHours() + "<br>");
+	document.write("d1.getTime()----" + d1.getTime() + "<br>");
+	document.write("d1.toUTCString()----" + d1.toUTCString() + "<br>");
+	d1.setFullYear(2004, 11, 28);
+	document.write("d1.setFullYear(2004, 11, 28)----" + d1 + "<br>");
+	document.write("Date.UTC(15, 34, 10, 78)----" + Date.UTC(15, 34, 10, 78) + "<br>");
+	
+	
+</script>
+</head>
+<body style="font-size: 40px;">
+
+</body>
+</html>

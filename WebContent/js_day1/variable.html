@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript 变量测试</title>
+<script type="text/javascript">
+	var a;//未赋值，是undified
+	document.write("未赋值:"+a+"----"+typeof(a)+"<br>");
+	b = undefined;//未声明，也是undifined
+	document.write("未声明:"+b+"----"+typeof(b)+"<br>");
+	var c = null;//null,是object
+	document.write("null:"+c+"----"+typeof(c)+"<br>");
+	document.write("null == undifined??:"+"----"+null==undefined+"<br>");
+	var d = true;
+	document.write("<br>boolean:"+d+"----"+typeof(d)+"<br>");
+	//number
+	var n1=100;
+	var n2=077;
+	var n22=079;
+	var n3=0xaa;
+	document.write("n1(100)----"+n1+"<br>");
+	document.write("n2(077)----"+n2+"<br>");
+	document.write("n22(079)----"+n22+"超过8进制7，那么就会当作10进制<br>");
+	document.write("n3(0xaa)----"+n3+"<br>");
+	var n4 = 1.0;
+	document.write("n4(1.0)----"+n4+"如果是.0，那么就会转为整数（浮点更浪费空间）<br>")
+	document.write("number Max----"+Number.MAX_VALUE+"<br>");
+	document.write("number Min----"+Number.MIN_VALUE+"<br>");
+	//是否
+	document.write("10/0----"+"isNaN----"+isNaN(10/0)+"<br>");//被除数为0是数字
+	document.write("10/0----"+"IsFinite----"+isFinite(10/0)+"<br>");//不是无限
+	document.write("10/'a'----"+"isNaN----"+isNaN(10/'a')+"<br>");//除数为字符串不是数字
+	document.write("10/'1'----"+"isNaN----"+isNaN(10/'1')+"<br>");
+	document.write("0/0----"+"----"+0/0+"<br>");//0/0不是数字
+	document.write("1/0----"+"----"+1/0+"<br>");//1/0是无限（其他数除以0也是无限）
+	document.write("boolean:true----"+"isNaN----"+isNaN(true)+"<br>");//true是数字
+	document.write("boolean:false----"+"isNaN----"+isNaN(false)+"<br>");//false也是数字
+	/* document.write(parseInt(true)); */
+	//字符串
+	document.write("abc我是abc".length+"<br>");//多少个字符长度就是多少，无论是中文还是英文
+	//obj
+	var o = new Object();
+	o.name="alan";
+	o.age=10;
+	document.write("obj---"+o+"<br>");
+	document.write("name---"+o.name+"<br>");
+	document.write("age---"+o.age+"<br>");
+	//类型转换
+	document.write("空字符--->boolean: "+Boolean("")+"<br>");
+	document.write("null--->boolean: "+Boolean(null)+"<br>");
+	//document.write("undifined--->boolean: "+Boolean(undifined)+"<br>");//无法转换？？
+	document.write("NaN--->boolean: "+Boolean(10/'a')+"<br>");
+	document.write("'abc'--->boolean: "+Boolean('abc')+"<br>");
+	document.write("100--->boolean: "+Boolean(100)+"<br>");
+	document.write("0--->boolean: "+Boolean(0)+"<br>");
+	
+	
+	
+	
+</script>
+</head>
+<body style="font-size: 40px;">
+
+</body>
+</html>

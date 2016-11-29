@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>字符串测试</title>
+<script type="text/javascript">
+	var a = 'hello你好';
+	document.write("a------"+a+"<br>");
+	document.write("a.length------"+a.length+"<br>");
+	document.write("a instanceof String------"+(a instanceof String)+"<br>");
+	document.write("a instanceof Object------"+(a instanceof Object)+"<br>");
+	document.write("a.toUpperCase()------"+(a.toUpperCase())+"<br>");
+	document.write("a.toLowerCase()------"+(a.toLowerCase())+"<br>");
+	document.write("a.charAt(3)------"+(a.charAt(3))+"<br>");
+	document.write("a.charCodeAt(3)------"+(a.charCodeAt(3))+"<br>");
+	//'a' 字符和第8个位置相对的位置???
+	document.write("a.indexOf('h',5)------ "+a.indexOf('h',95)+"<br>");
+	//最后一个x的位置：从0开始
+	document.write("a.lastIndexOf('l',5)------ "+a.lastIndexOf('l',5)+"<br>");
+	var b = "nihao?";
+	document.write("b.match('ha')------"+b.match("ha")+"<br>");
+	document.write("b.search('ha')------"+b.search("ha")+"<br>");
+	document.write("b.substr(2,3)------"+b.substr(2,3)+"<br>");//从2开始，接下来的3个
+	document.write("b.substring(2,4)------"+b.substring(2,4)+"<br>");//从2位置开始到4位置开始
+	document.write("b.slice(2,4)------"+b.slice(2,3)+"<br>");//未知
+	document.write("b.slice(2)------"+b.slice(2)+"<br>");//从2开始到最后
+	document.write("b.replace('hao','buhao')------"+b.replace('hao','buhao')+"<br>");//指定字符串替换
+	
+	//字符串数组
+	var c = "a,b,c,,,,,,,";
+	var d = c.split(",",3);//limite:限制输出多少个，如果没有就全部输出。js不忽略空的
+	for(var i in d){
+		document.write(i+"--->"+d[i]+"<br/>");
+	}
+	var e = "d,e,f,,,,"
+	document.write("c.concat(e)--->"+c.concat(e)+"<br/>");
+</script>
+</head>
+<body style="font-size: 40px;">
+
+</body>
+</html>

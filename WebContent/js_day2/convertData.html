@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Number类型转换</title>
+<script type="text/javascript">
+	document.write("null---->number: "+Number(null)+"<br>");
+	document.write("false---->number: "+Number(false)+"<br>");
+	document.write("true---->number: "+Number(true)+"<br>");
+	//报错：'undifined' is undefined
+	//document.write("undifined---->number: "+Number(undifined)+"<br>");
+	document.write("'123'---->number: "+Number('123')+"<br>");
+	document.write("'123.23'---->number: "+Number('123.23')+"<br>");
+	//有+合在一起就不是数字了
+	document.write("'1+123.23'---->number: "+Number('1+123.23')+"<br>");
+	//+在最前面是数字了
+	document.write("'+123.23'---->number: "+Number('+123.23')+"<br>");
+	document.write("'0xaa'---->number: "+Number('0xaa')+"<br>");
+	document.write("'010'---->number: "+Number('010')+"<br>");
+	
+</script>
+</head>
+<body style="font-size: 40px">
+
+</body>
+</html>

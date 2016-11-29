@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>if测试</title>
+<script type="text/javascript">
+	var a = prompt("请输入年龄", 0);
+	document.write("a---typeof: "+typeof(a)+"<br>");
+	document.write("a = parseInt(a)---------<br>");
+	a = parseInt(a);
+	document.write("a---typeof: "+typeof(a)+"<br>");
+	var grade;
+	if(a>80){
+		document.write("超级老年人<br>");
+	}else if(a>70){
+		document.write("中级老年人<br>");
+	}else if(a>60){
+		document.write("一般老年人<br>");
+	}else if(a>40){
+		document.write("中年人<br>");
+	}else if(a>20){
+		document.write("青年人<br>");
+	}else{
+		document.write("too yuang too simple<br>");
+	}
+</script>
+</head>
+<body style="font-size: 40px;">
+
+</body>
+</html>

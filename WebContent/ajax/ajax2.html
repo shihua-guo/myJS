@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>选择对应的地名</title>
+</head>
+<body>
+	<select name="province" onchange="city(this);">
+		<option>广东</option>
+		<option>江苏</option>
+	</select>
+	<select name="city">
+		<option></option>
+		<option></option>
+	</select>
+	<span id="city"></span>
+	<script type="text/javascript">
+		function city(province){
+			var req = new XMLHttpRequest();//获取xx对象
+			console.log(province.value);
+			req.onreadystatechange = function (){//当状态改变的时候
+				if(req.readyState==4 && req.status==200){
+					console.log("进入发送");
+					//获取需要改变的地方的对象
+					document.getElementById("city").innerHTML = req.responseText;
+				}
+			}
+			req.open("get", "../city.do?province="+province.value, true);
+			req.send();
+		}
+	</script>
+</body>
+</html>

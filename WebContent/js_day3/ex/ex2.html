@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex2</title>
+<!-- js -->
+<script type="text/javascript">
+	function cal() {
+		//获取输入框的数字和符号
+		var num1 = parseFloat(document.getElementById("num1").value);
+		var num2 = parseFloat(document.getElementById("num2").value);
+		var sym = document.getElementById("sym").value;
+		//结果
+		var res;
+		console.log(sym.value);
+		console.log(num1);
+		console.log("=-=========="+parseFloat(num1));
+		if ( isNaN(num1) || isNaN(num2)|| num1=="" ||  num2=="" ) {
+			console.log(typeof(num1));
+			alert("请输入数字");
+		} else {
+			switch (sym) {
+			case '+':
+				res=num1+num2;
+				break;
+			case '-':
+				res=num1-num2;
+				break;
+			case '*':
+				res=num1*num2;
+				break;
+			case '/':
+				res=num1/num2;
+				break;
+			default:
+				break;
+			}
+			document.getElementById("res").value=res;
+		}
+	}
+</script>
+</head>
+<body>
+	<input type="text" id="num1" />
+	<select id="sym">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">*</option>
+		<option value="/">/</option>
+	</select>
+	<input type="text" id="num2" />
+	<sapan>=</sapan>
+	<input type="text" id="res" />
+	<input type="button" value="计算" onclick="cal();" />
+
+</body>
+</html>

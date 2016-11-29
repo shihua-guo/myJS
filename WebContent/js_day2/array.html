@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>数组测试</title>
+<script type="text/javascript">
+	var arr = new Array(3);
+	document.write("arr数组的长度："+arr.length+"<br>");
+	arr[0] = 'alan';
+	arr[1] = 123;
+	arr[2] = true;
+	for(var i in arr){
+		document.write(i+"--->"+arr[i]+"<br>");
+	}
+	arr[5] = 100;
+	document.write("arr数组的长度："+arr.length+"<br>");
+	var arr2 = ["alan","jade"];
+	document.write("arr2数组的typeof："+typeof(arr2)+"<br>");
+	document.write("arr2："+arr2+"<br>");
+	document.write("Array.isArray(arr2)："+Array.isArray(arr2)+"<br>");
+	document.write("arr2.toString()："+arr2.toString()+"<br>");
+	document.write("arr2.valueOf()："+arr2.valueOf()+"<br>");
+	document.write("arr2.join("|")："+arr2.join("|")+"<br>");
+	document.write("arr2："+arr2+"<br>");
+	var arr3 = arr2.concat("are ","couple!!");
+	document.write("arr3："+arr3+"<br>");
+	document.write("arr3.sort()："+arr3.sort()+"<br>");
+	document.write("arr3.reverse()："+arr3.reverse()+"<br>");
+	var arr4 = [1,2,3,4,5,6,7];
+	document.write("arr4.slice(3,6)："+arr4.slice(3,6)+"<br>");
+	document.write("arr4："+arr4+"<br>");
+	//删除2开始之后的三个元素
+	document.write("arr4.splice(2,3)："+arr4.splice(2,3)+"<br>");
+	document.write("arr4："+arr4+"<br>");
+	//插入？如果写多个参数：从第2个开始的之后2个删除，然后再从第二个插入：11，12，13
+	document.write("arr4.splice(1, 2, 11,12,13)："+arr4.splice(1, 2, 11,12,13)+"<br>");
+	document.write("arr4："+arr4+"<br>");
+	//再最后面插入
+	document.write("arr4.splice(arr4.length, 0, 21,22,23)："+arr4.splice(arr4.length, 0, 21,22,23)+"<br>");
+	document.write("arr4："+arr4+"<br>");
+	//栈
+	var arr5 =[11,12,13,14,15];
+	document.write("arr5.push(15)："+arr5.push(15)+"<br>");
+	arr5.push(15);//还是从最后那个开始出栈
+	document.write("arr5："+arr5+"<br>");
+	document.write("arr5.pop(13)："+arr5.pop(13)+"<br>");
+	document.write("arr5："+arr5+"<br>");
+	//不懂什么意思
+	document.write("arr5.unshift(3)："+arr5.unshift(3)+"<br>");
+	document.write("arr5："+arr5+"<br>");
+	//不懂什么意思
+	document.write("arr5.shift()："+arr5.shift()+"<br>");
+	document.write("arr5："+arr5+"<br>");
+	//15最后一个位置
+	document.write("arr5.lastIndexOf(15)："+arr5.lastIndexOf(15)+"<br>");
+	document.write("arr5："+arr5+"<br>");
+	
+	
+</script>
+</head>
+<body style="font-size: 40px;">
+
+</body>
+</html>

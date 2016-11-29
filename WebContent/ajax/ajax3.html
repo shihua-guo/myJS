@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>选择对应的地名</title>
+<script type="text/javascript">
+	//声明为全局以后回调需要使用
+	var xhr = null;
+		function city(province){
+			var pro = province.value;
+			console.log(pro);
+			if(pro==-1){
+				var sel = document.getElementById("selected");
+				console.log(sel);
+				sel.selected = true;
+				var citys = document.getElementsByName("city")[0];
+				console.log(citys);
+				citys.options.length=1;
+				console.log(citys.options.length);
+				
+				//
+				return ;
+			}
+			if(xhr == null){
+				xhr = createXMLHttpRequest();
+			}
+			if(xhr != null){
+				//设置URL
+				var url = "../Select";
+				//open
+				xhr.open("post",url,true);
+				//设置封装类型：xml
+				xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;");
+				//onchange
+				xhr.onreadystatechange=call;
+				//send
+				xhr.send("id="+pro);
+			}
+		}
+		function call(){
+			if(xhr.readyState==4){
+				if(xhr.status==200){
+					var dom = xhr.responseXML;
+					console.log(dom);
+					//解析response的xml
+					var citys = dom.getElementsByTagName("city");
+					//获取city标签
+					var sel = document.getElementsByName("city")[0];
+					//初始化option标签
+					sel.options.length=1;
+					for(var i=0;i<citys.length;i++){
+						//获取city标签的内容
+						var c = citys[i].firstChild.nodeValue;
+						//新建option:第一个参数是文本内容，第二个参数是value
+						sel.options[i+1] = new Option(c,i);
+					}
+				}
+			}
+		}
+		function createXMLHttpRequest(){
+			var xmlHttpRequest = null;
+			/* 判断是否支持对应的 */
+			if(window.ActiveXObject){//IE 5
+				xmlHttpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+			}else if(window.XMLHttpRequest){
+				xmlHttpRequest = new XMLHttpRequest();
+			}else{
+				alert("请更换浏览器！");
+			}
+			return xmlHttpRequest;
+		}
+	</script>
+</head>
+<body>
+	<select name="province" onchange="city(this);">
+		<option value="-1">省份</option>
+		<option value="0">广东</option>
+		<option value="1">江苏</option>
+	</select>
+	<select name="city">
+		<option value="-1" id="selected">城市</option>
+	</select>
+	<span id="city"></span>
+	
+</body>
+</html>

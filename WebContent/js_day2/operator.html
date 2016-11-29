@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>操作符</title>
+<script type="text/javascript">
+	var a=true;
+	document.write("true++: "+a+++"<br>");
+	document.write("++true: "+ ++a+"<br>");
+	document.write("<br>");
+	var o = new Object();
+	o.name="alan";
+	o.age=20;
+	//重写valueOf
+	o.valueOf = function(){
+		return "16";
+	}
+	//重写toString
+	o.toString = function(){
+		return "17";
+	}
+	document.write("o.valueOf---"+o.valueOf+"<br>");
+	document.write("o.toString---"+o.toString+"<br>");
+	document.write("<br>");
+	//++o优先调用valueof。如果valueof没有重写就调用toString
+	//如果都没有重写那么就是NaN
+	document.write("++o--- "+ ++o+"<br>");
+	document.write("!''--- "+ !''+"<br>");
+	document.write("<br>");
+	document.write("Boolean(null)--- "+ Boolean(null)+"<br>");
+	document.write("null&&true--- "+ null&&true+"<br>");
+	document.write("8&&'a'---- "+ 8&&'a'+"<br>");
+	document.write("<br>");
+	//||
+	document.write("null||null---- "+ (null||null)+"<br>");
+	document.write("null||'a'---- "+ (null||'a')+"<br>");
+	document.write("null||false---- "+ (null||false)+"<br>");
+	//&&
+	document.write("<br>");
+	document.write("null&&null ----"+ (null&&null)+"<br>");
+	document.write("null&&'a'----"+ (null&&'a')+"<br>");
+	document.write("null&&false----"+ (null&&false)+"<br>");
+	document.write("<br>");
+	//比较字符串和数字，会取数字的ascii码进行判断
+	document.write("true+false----"+(true+false)+"<br>");
+	document.write("1>'b'---"+(1>'b')+"<br>");
+	document.write("1=='1'---"+(1=='1')+"<br>");
+	
+</script>
+</head>
+<body style="font-size: 40px;">
+
+</body>
+</html>

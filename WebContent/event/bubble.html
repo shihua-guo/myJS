@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html onclick="alert('我是html');">
+<head>
+<meta charset="UTF-8">
+<title>Bubble测试</title>
+<style type="text/css">
+	body {
+		border: 1px solid black;
+		padding: 20px;
+	}
+	div {
+		border: 1px solid red;
+		width: 600px;
+		height: 200px;
+		padding: 40px;
+		margin: 10px auto;
+	}
+	span {
+		border: 1px solid blue;
+		font-size: 30px;
+		color: red;
+		margin: 30px;
+	}
+</style>
+</head>
+<body onclick="alert('我是body');">
+	<div onclick="alert('我是div');">
+		<!-- 事件冒泡：把事件一级一级往上传 -->
+		<span onclick="alert('我是span1');">我是span1</span>
+		<span onclick="cancelEvent(event);">我是span2</span>
+	</div>
+	<!-- JS -->
+	<script type="text/javascript">
+		function cancelEvent(event){
+			//event.cancelBubble = true;
+			event.stopPropagation();
+			alert('我是span2');
+		}
+	</script>
+</body>
+</html>

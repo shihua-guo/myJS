@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cookie对象测试</title>
+	<script type="text/javascript">
+		document.cookie = "userName=alan;";
+		document.cookie = "passwd=123";
+		
+	</script>
+</head>
+<body>
+	<script type="text/javascript">
+		var cookies = document.cookie;
+		var keys = cookies.split(";");
+		for(var i=0;i<keys.length;i++){
+			var cookie = keys[i].split("=");
+			console.log(cookie[0]+"-----"+cookie[1]);
+		}
+	</script>
+</body>
+</html>

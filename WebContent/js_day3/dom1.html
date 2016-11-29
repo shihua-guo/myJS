@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dom测试</title>
+</head>
+<body style="font-size: 40px;" onload="">
+	<div id="d1" class="div1">我是div1</div>
+	<div class="div2">我是div2</div>
+<script type="text/javascript">
+	/* document节点 */
+	console.log('-------------------document节点');
+	console.log(document.nodeName);
+	console.log(document.nodeType);
+	console.log(document.nodeValue);
+	/* body节点 */
+	console.log('-------------------body节点');
+	console.log(document.body.nodeName);
+	console.log(document.body.nodeType);
+	console.log(document.body.nodeValue);
+	/* 获取body节点的子节点 */
+	var childList = document.body.childNodes;
+	console.log('-------------------获取body节点的子节点');
+	console.log(childList)
+	document.write(childList);
+	console.log('-------------------遍历body子节点');
+	/* 遍历body子节点 */
+	for(var i=0;i<childList.length;i++){
+		console.log("==================================="+i);
+		console.log(childList.item(i));
+		console.log("name:"+childList.item(i).nodeName+" "+
+					"type:"+childList.item(i).nodeType+" "+
+					"value:"+childList.item(i).nodeValue);
+	}
+	console.log('--------------------------查看body的亲人节点');
+	//父亲节点
+	console.log(document.body.parentNode);
+	//firstChild：第一个子节点（包含文本节点），nextSibling：下一个兄弟节点（包含文本节点）
+	console.log(document.body.firstChild.nextSibling.nextSibling);
+	//pre~Sibling：前一个兄弟节点（包含文本节点）
+	console.log(document.body.previousSibling.previousSibling);
+	//ownerDocument：暂时不懂是什么？
+	console.log(document.body.ownerDocument);
+	
+	/* 获取div1 */
+	var div1 = document.body.firstChild.nextSibling;
+	console.log(div1);
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>事件处理测试</title>
+	<script type="text/javascript">
+		/* 处理第一个按钮 */
+		function showMsg(event){
+			console.log(event);
+			alert("你点击了1号按钮！");
+			var res = confirm("你确定嘛？");
+			console.log(res);
+		}
+		//当页面完成加载
+		window.onload = function (){
+			alert("页面完成加载！");
+			/* 处理第二个按钮 */
+			var btn2 = document.getElementById("btn2");
+			btn2.onclick = function (event){
+				alert("你点击了2号按钮！");
+			}
+			
+			/* 处理第三个按钮 */
+			var btn3 = document.getElementById("btn3");
+			//dom2级别的事件处理
+			var e3 = function (event){
+				console.log(event);
+				alert("你点击了3号按钮！");
+			}
+			//事件绑定
+			//btn3.addEventListener("click", e3, false);
+			
+			/* 处理第四个按钮 */
+			var btn4 = document.getElementById("btn4");
+			btn4.addEventListener("click", function(){
+				//移除按钮3绑定的事件
+				btn3.removeEventListener("click", e3, false);
+				alert("3号按钮绑定的事件已经被移除！");
+			}, false);
+			
+			/* IE事件处理 */
+			var e4 = function (){
+				alert("IE事件处理：你点击了3号按钮！");
+			}
+			btn3.attachEvent("click", e4);
+		}
+	</script>
+</head>
+<body>
+	<input id="btn1" type="button" value="我是按钮1号" onclick="showMsg(event);"/>
+	<input id="btn2" type="button" value="我是按钮2号" />
+	<input id="btn3" type="button" value="我是按钮3号" />
+	<input id="btn4" type="button" value="我是按钮4号"/>
+	<input type="text" onblur="check();"/>
+</body>
+</html>

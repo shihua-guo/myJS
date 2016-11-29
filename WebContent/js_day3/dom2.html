@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Document测试</title>
+<style type="text/css">
+	div{
+		font-size: 40px;
+		border: 2px solid red;
+		width: 200px;
+		margin: 20px;
+		padding: 20px;
+	}
+</style>
+</head>
+<body>
+	<input type="button" value="Add" onclick="add();">
+	<div id="div1" class="one">我是div1</div>
+	<div id="div2" class="one">我是div2</div>
+	<form action="" name="form1"></form>
+	<form action="" name="form2"></form>
+	
+	<script type="text/javascript">
+		//children这个是什么意思？？
+		console.log("=================================获取body的所有子节点（不含文本）");
+		console.log(document.body.children);
+		console.log("=================================遍历");
+		var es = document.body.children;
+		for(var i=0;i<es.length;i++){
+			console.log(es[i]);
+		}
+		function add() {
+			document.body.firstChild.nextSibling.value="添加";
+		}
+		console.log("=================================documentElement");
+		console.log(document.documentElement);
+		console.log('---------------------------------document.title');
+		console.log(document.title);
+		console.log('---------------------------------document.forms[0]');
+		console.log(document.forms[0]);
+		console.log("=================================通过id获取元素");
+		var div1 = document.getElementById("div1");
+		console.log(div1);
+		div1.style['background-color'] = 'green';
+		div1.style['width'] = '600px';
+		console.log("=================================通过tagName获取元素");
+		var divs = document.getElementsByTagName("div");
+		for(var j=0;j<divs.length;j++){
+			console.log(divs.item(i));
+		}
+		
+		function add(){
+			//新建节点div=3
+			var fontDiv = document.createElement("div3");
+			//设置div3的属性
+			fontDiv.setAttribute("size",'6');
+			fontDiv.setAttribute("color",'red');
+			//创建文本节点
+			var txt = document.createTextNode("我是新加的TextNode");
+			//把文本添加都div3元素上
+			fontDiv.appendChild(txt);
+			//把div3添加到div1上
+			div1.appendChild(fontDiv);
+			//只能出现一个。。。所以。。
+			document.body.insertBefore(fontDiv, div1);
+		}
+		var div2 = document.getElementById("div2");
+		console.log(div2);
+		var divN = document.createElement("div");
+		divN.setAttribute("class","divN");
+		document.body.insertBefore(divN, div2);
+		var txt2 = document.createTextNode("我是更加新的一个Text")
+		divN.appendChild(txt2);
+	
+	</script>
+</body>
+</html>
